@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <h1>ADD</h1>
+    <form action="" method="post" name="insert">
+        {{ form.hidden_tag() }}
+        <p>
+            Last Name:<br>
+            {{ form.lastName(size=255) }}<br>
+        </p>
+        <p>
+            First Name:<br>
+            {{ form.firstName(size=255) }}<br>
+        </p>
+        <p>
+            Address:<br>
+            {{ form.address(size=255) }}<br>
+        </p>
+        <p>
+            City:<br>
+            {{ form.city(size=255) }}<br>
+        </p>
+        <p><input type="submit" value="Insert"></p>
+    </form>
+
+    <h1>ADDRESS BOOK 2015 PDS</h1>
+    {% for person in persons %}
+    <p>
+    	<b>ID: </b>{{ person.id }} <b>Last Name: </b>{{ person.lastName }} <b>FirstName: </b> {{ person.firstName }} <b>Address: </b> {{ person.address }} <b>City: </b> {{ person.city }}
+    </p>
+    {% endfor %}
+{% endblock %}
