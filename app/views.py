@@ -1,10 +1,12 @@
-from flask import render_template, flash, redirect
+from flask import Flask, render_template, flash, redirect
 from app import app, db
 from .forms import InsertForm
-from .models import Person
+from .models import Person, User, Role
+from flask.ext.security import login_required
 
 
 @app.route('/', methods=['GET', 'POST'])
+@login_required
 def index():
 
     form = InsertForm()
