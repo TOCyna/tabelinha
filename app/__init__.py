@@ -1,3 +1,4 @@
+import os.path
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.security import Security, SQLAlchemyUserDatastore

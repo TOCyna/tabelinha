@@ -11,6 +11,7 @@ class InsertForm(Form):
     city = StringField('city', validators=[DataRequired()])
 
 class ExtendedRegisterForm(RegisterForm):
+    username = StringField('First Name', validators=[DataRequired()])
     first_name = StringField('First Name', validators=[DataRequired()])
     last_name = StringField('Last Name', validators=[DataRequired()])
     address = StringField('Address', validators=[DataRequired()])
