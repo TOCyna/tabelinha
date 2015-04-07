@@ -22,6 +22,16 @@ class User(db.Model, UserMixin):
                             backref=db.backref('users', lazy='dynamic'))
     first_name = db.Column(db.String(255))
     last_name = db.Column(db.String(255))
+    address = db.Column(db.String(255))
+    number = db.Column(db.String(255))
+    address2 = db.Column(db.String(255))
+    neighbourhood = db.Column(db.String(255))
+    zipcode = db.Column(db.String(255))
+    city = db.Column(db.String(255))
+    state = db.Column(db.String(255))
+    birthday = db.Column(db.String(255))
+    cellphone = db.Column(db.String(255))
+    phone = db.Column(db.String(255))
 
 
 class Person(db.Model):
