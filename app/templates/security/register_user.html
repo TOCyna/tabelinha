@@ -1,0 +1,86 @@
+{% block title %}
+    <h1>Register</h1>
+{% endblock %}
+
+{% block form_content %}
+    <form action="{{ url_for('security.register') }}" method="POST" name="register_user_form">
+        {{ register_user_form.hidden_tag() }}
+        {% for error in register_user_form.errors %}
+            {{ error }}]<br>
+        {% endfor %}
+        <p>
+            Email Address:
+        {{ register_user_form.email(size=16) }}<br>
+        </p>
+        <p>
+            Username:
+        {{ register_user_form.username(size=16) }}<br>
+        </p>
+        <p>
+            First Name:
+        {{ register_user_form.first_name(size=16) }}<br>
+        </p>
+        <p>
+            Last Name:
+        {{ register_user_form.last_name(size=16) }}<br>
+        </p>
+        <p>
+            Address:
+        {{ register_user_form.address(size=32) }}<br>
+        </p>
+        <p>
+            Number:
+        {{ register_user_form.number(size=8) }}<br>
+        </p>
+        <p>
+            Address2:
+        {{ register_user_form.address2(size=16) }}<br>
+        </p>
+        <p>
+            Neighbourhood:
+        {{ register_user_form.neighbourhood(size=16) }}<br>
+        </p>
+        <p>
+            Zipcode:
+        {{ register_user_form.zipcode(size=16) }}<br>
+        </p>
+        <p>
+            City:
+        {{ register_user_form.city(size=16) }}<br>
+        </p>
+        <p>
+            State:
+        {{ register_user_form.state(size=16) }}<br>
+        </p>
+        <p>
+            Birthday:
+        {{ register_user_form.birthday(size=16) }}<br>
+        </p>
+        <p>
+            Cellphone:
+        {{ register_user_form.cellphone(size=16) }}<br>
+        </p>
+        <p>
+            Phone:
+        {{ register_user_form.phone(size=16) }}<br>
+        </p>
+        <p>
+            Password:
+        {{ register_user_form.password(size=16) }}<br>
+        </p>
+        <p>
+            Password Confirmation:
+        {% if register_user_form.password_confirm %}
+            {{ register_user_form.password_confirm(size=16) }}
+        {% endif %}<br>
+        </p>
+        <p><input type="submit" value="Submit"></p>
+
+    </form>
+    <h2>Menu</h2>
+    <ul>
+      <li><a href="/login?next=/">Login</a></li>
+      
+      <li><a href="/register?next=/">Register</a><br></li>
+    </ul>
+{% endblock %}
