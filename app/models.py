@@ -1,3 +1,4 @@
+from flask import Flask
 from app import db
 from flask.ext.security import UserMixin, RoleMixin
 	
@@ -19,6 +20,8 @@ class User(db.Model, UserMixin):
     confirmed_at = db.Column(db.DateTime())
     roles = db.relationship('Role', secondary=roles_users,
                             backref=db.backref('users', lazy='dynamic'))
+    first_name = db.Column(db.String(255))
+    last_name = db.Column(db.String(255))
 
 
 class Person(db.Model):
