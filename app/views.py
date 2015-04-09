@@ -38,26 +38,3 @@ def index():
 def logout():
     logout_user()
     return redirect('/')
-
-@app.route('/list')
-def list():
-    """List the uploads."""
-    uploads = Upload.query.all()
-    return render_template('list.html', uploads=uploads)
-
-
-@app.route('/upload', methods=['GET', 'POST'])
-def upload():
-    """Upload a new file."""
-    if request.method == 'POST':
-        save(request.files['upload'])
-        return redirect(url_for('index'))
-    return render_template('upload.html')
-
-
-@app.route('/delete/<int:id>', methods=['POST'])
-def remove(id):
-    """Delete an uploaded file."""
-    upload = Upload.query.get_or_404(id)
-    delete(upload)
-    return redirect(url_for('index'))
