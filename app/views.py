@@ -1,8 +1,14 @@
-from flask import Flask, render_template, flash, redirect
+from flask import Flask, render_template, flash, redirect, request, url_for, send_from_directory
 from app import app, db
 from .forms import InsertForm
 from .models import Person, User, Role
 from flask.ext.security import login_required, logout_user, current_user
+from werkzeug import secure_filename
+
+# For a given file, return whether it's an allowed type or not
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
 
 @app.route('/', methods=['GET', 'POST'])

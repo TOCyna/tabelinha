@@ -12,6 +12,11 @@ app.config['SECURITY_REGISTERABLE'] = True
 
 db = SQLAlchemy(app)
 
+# This is the path to the upload directory
+app.config['UPLOAD_FOLDER'] = 'uploads/'
+# These are the extension that we are accepting to be uploaded
+app.config['ALLOWED_EXTENSIONS'] = set(['png', 'jpg', 'jpeg', 'gif'])
+
 
 from app import views, models, forms
 from .models import User, Role
